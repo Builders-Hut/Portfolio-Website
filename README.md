@@ -1,2 +1,5 @@
 # Portfolio-Website
-Session One: A basic project built using html and css to actually understand how things work
+
+
+## Website Layout
+<center> <img src="./.github/websitelayout.png" /> </center>
