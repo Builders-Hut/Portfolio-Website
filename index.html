@@ -9,18 +9,73 @@
     <title>Portfolio Website</title>
   </head>
   <body>
-    <!-- navbar component -->
-    <nav id="navbar">
-      <span>ADITYA JYOTI</span>
+    <!-- splash component -->
+    <section id="splash-container">
+      <div id="splash-text">
+        <span>Hello! I am Aditya Jyoti</span>
 
-      <div id="nav-icons">
-        <a href="https://github.com/aditya-jyoti" target="_blank">
-          <img src="/assets/github.svg" alt="github" />
-        </a>
-        <a href="https://linkedin.com/in/aditya-jyoti" target="_blank">
-          <img src="/assets/linkedin.svg" alt="linkedin" />
-        </a>
+        <section id="typing-container">
+          <span>I am interested in <span id="typing-text"></span> </span>
+        </section>
+
+        <section id="connection-container">
+          <span>connect with me</span>
+          <div id="connection-links" >
+            <a href="https://linkedin.com/in/aditya-jyoti/" target="_blank">
+              <img src="/assets/linkedin.svg" alt="linkedin" />
+            </a>
+            <a href="https://github.com/aditya-jyoti/" target="_blank">
+              <img src="/assets/github.svg" alt="github" />
+            </a>
+          </div>
+        </section>
       </div>
-    </nav>
+    </section>
+
+    <script>
+      const typingElement = document.getElementById("typing-text");
+      const typeArray = [
+        "Robotics",
+        "Development",
+        "Public Speaking",
+        "Spreading Knowledge",
+      ];
+
+      let index = 0;
+      let isAdding = true;
+      let typeIndex = 0;
+
+      function playAnim() {
+        setTimeout(
+          function () {
+            typingElement.innerText = typeArray[typeIndex].slice(0, index);
+            if (isAdding) {
+              if (index >= typeArray[typeIndex].length) {
+                isAdding = false;
+                setTimeout(function () {
+                  playAnim();
+                }, 500);
+                return;
+              } else {
+                index++;
+              }
+            } else {
+              if (index === 0) {
+                isAdding = true;
+                typeIndex++;
+                if (typeIndex >= typeArray.length) {
+                  typeIndex = 0;
+                }
+              } else {
+                index--;
+              }
+            }
+            playAnim();
+          },
+          isAdding ? 120 : 120
+        );
+      }
+      playAnim();
+    </script>
   </body>
 </html>
