@@ -136,61 +136,100 @@
       </span>
     </footer>
 
-    <!-- JavaScript for the typing effect -->
-    <script>
-      // Get the element where the typing effect will occur
-      const typingElement = document.getElementById("typing-text");
+  <!-- JavaScript for the typing effect -->
+  <script>
+    // Get the element where the typing effect will occur
+    const typingElement = document.getElementById("typing-text");
 
-      // Array of texts to display in the typing effect
-      const typeArray = [
-        "Robotics",
-        "Development",
-        "Public Speaking",
-        "Spreading Knowledge",
-      ];
+    // Array of texts to display in the typing effect
+    const typeArray = [
+      "Robotics",
+      "Development",
+      "Public Speaking",
+      "Spreading Knowledge",
+    ];
 
-      let index = 0; // Current character index
-      let isAdding = true; // Whether we're currently adding or removing characters
-      let typeIndex = 0; // Current word index in typeArray
+    // Current index of the *character* in the current word
+    let index = 0; 
 
-      function playAnim() {
-        setTimeout(
-          function () {
-            // Update the text content
-            typingElement.innerText = typeArray[typeIndex].slice(0, index);
+    // We may either be adding characters to the screen or removing them
+    let isAdding = true; 
 
-            if (isAdding) {
-              // If we're adding characters
-              if (index >= typeArray[typeIndex].length) {
-                isAdding = false;
-                // Pause before starting to remove characters
-                setTimeout(function () {
-                  playAnim();
-                }, 500);
-                return;
-              } else {
-                index++;
-              }
+    // Index of the current word in typeArray
+    let typeIndex = 0;
+
+    function playAnim() {
+
+      // The function within this runs after a certain time
+      setTimeout(
+
+        function () {
+          
+          // Put all characters upto the current index in the given word
+          // which is being typed out
+          typingElement.innerText = typeArray[typeIndex].slice(0, index);
+
+          if (isAdding) {
+
+            // If we reach the end of the current word while adding characters
+            if (index >= typeArray[typeIndex].length) {
+
+              // We will no longer add characters from next call onwards
+              isAdding = false;
+
+              // Call the function again after some pause (timeout)
+              setTimeout(function () {
+                playAnim();
+              }, 500);
+
+              return;
+
             } else {
-              // If we're removing characters
-              if (index === 0) {
-                isAdding = true;
-                typeIndex++;
-                if (typeIndex >= typeArray.length) {
-                  typeIndex = 0;
-                }
-              } else {
-                index--;
-              }
-            }
-            playAnim();
-          },
-          isAdding ? 120 : 120 // Typing speed (can be adjusted)
-        );
-      }
 
-      // Start the animation
-      playAnim();
-    </script>
+              // We didn't reach the end of current word
+              // So simply increase the index to add the next character
+              index++;
+            }
+
+          } else {
+            // If we're removing characters
+
+            // And if we reach the start of the current word
+            if (index === 0) {
+
+              // We removed all the characters, so we will add
+              // characters from next call onwards
+              isAdding = true;
+
+              // Since the current word was finished, we will add characters
+              // to the next word from next call onwards
+              typeIndex++;
+
+              // If we have already completed all the words in the array
+              // we will start from the first word again
+              if (typeIndex >= typeArray.length) {
+                typeIndex = 0;
+              }
+
+            } else {
+
+              // If we haven't reached the start of the current word yet
+              // Then simply remove the word at the current index
+              index--;
+            }
+          }
+
+          // Call this function again (to repeat the process from where we left)
+          playAnim();
+        },
+
+        // This just tells the timeout function to wait for 120ms before running
+        120
+      );
+    }
+
+    // LET THE PARTY BEGIN!
+    playAnim();
+  </script>
   </body>
 </html>
