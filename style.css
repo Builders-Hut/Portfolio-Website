@@ -1,11 +1,13 @@
+/* Import Google Font - Roboto with various weights */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
-/* declaring variables for easy reference  */
+/* CSS Variables for consistent colors throughout the site */
 :root {
-  --background: #171619;
-  --foreground: #eee4dd;
+  --background: #171619;  /* Dark background color */
+  --foreground: #eee4dd;  /* Light foreground color */
 }
 
+/* Basic reset and font setup */
 html {
   text-decoration: none;
   font-family: "Roboto", sans-serif;
@@ -15,54 +17,49 @@ body {
   display: block;
   padding: 0px;
   margin: 0px;
-
   background-color: var(--foreground);
 }
 
-/* splash section */
+/* Splash section styles */
 #splash-container {
-  min-height: 100vh;
+  min-height: 100vh;  /* Full viewport height */
   position: relative;
   overflow: hidden;
 }
 
+/* Background image setup with blur effect */
 #splash-container::before {
   content: "";
   position: absolute;
-
   top: 0;
   left: 0;
-
   width: 100%;
   height: 100%;
-
   background-image: url("/assets/background.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-
-  filter: blur(8px);
+  filter: blur(8px);  /* Blurry background effect */
   z-index: 1;
 }
 
+/* Down arrow styling */
 #down-arrow {
   position: absolute;
   z-index: 3;
-
   bottom: 0;
   left: 50%;
-
-  transform: translateX(-50%);
-
+  transform: translateX(-50%);  /* Center horizontally */
   width: 3rem;
   padding: 0.5rem;
   margin-bottom: 1rem;
 }
 
+/* Main splash text styling */
 #splash-text {
   padding: 14rem;
   position: relative;
-  z-index: 2;
+  z-index: 2;  /* Above the blurred background */
 }
 
 #splash-text > div {
@@ -78,6 +75,7 @@ body {
   color: var(--background);
 }
 
+/* Typing effect container styling */
 #typing-container {
   font-size: 3rem;
 }
@@ -87,11 +85,11 @@ body {
   text-decoration: underline;
 }
 
+/* Social media connection styling */
 #connection-container {
   display: flex;
   align-items: center;
   gap: 1rem;
-
   font-size: 2rem;
   font-weight: 500;
 }
@@ -100,7 +98,6 @@ body {
   display: flex;
   align-items: center;
   gap: 1rem;
-
   transform: translateY(0.25rem);
 }
 
@@ -109,20 +106,16 @@ body {
   height: 2rem;
 }
 
-/* interests section */
-
+/* Interests section styling */
 #interests-container {
   display: flex;
   align-items: center;
   gap: 4rem;
-
   width: 90%;
   margin-left: auto;
   margin-right: auto;
-
   padding: 2rem;
   text-align: center;
-
   border-bottom: 2px solid var(--background);
 }
 
@@ -146,14 +139,12 @@ body {
   letter-spacing: 0.05rem;
 }
 
-/* project section */
+/* Projects section styling */
 #projects-container {
   display: flex;
   flex-direction: column;
-
   gap: 1rem;
   padding: 2rem;
-
   align-items: center;
 }
 
@@ -165,22 +156,17 @@ body {
 #projects {
   display: flex;
   flex-direction: column;
-
   gap: 1rem;
 }
 
 #projects > div {
   display: flex;
   flex-direction: column;
-
   border: 2px dotted var(--background);
-
   width: 80%;
   padding: 1rem;
-
   margin-left: auto;
   margin-right: auto;
-
   gap: 1rem;
 }
 
@@ -191,43 +177,33 @@ body {
 
 .project-details {
   display: flex;
-
   justify-content: end;
-
   width: 100%;
 }
 
+/* Project link button styling */
 .project-details > a {
   font-size: large;
   font-weight: 500;
-
   text-decoration: none;
-
   color: var(--foreground);
   background-color: var(--background);
-
   padding-left: 4rem;
   padding-right: 4rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-
   text-align: center;
-
   border-radius: 1rem;
 }
 
-/* footer component */
+/* Footer styling */
 footer {
   display: flex;
   flex-direction: column;
-
   gap: 0.25rem;
-
   justify-content: center;
   align-items: center;
-
   height: 5rem;
-
   background-color: var(--background);
   color: var(--foreground);
 }

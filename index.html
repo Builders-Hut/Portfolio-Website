@@ -1,29 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Basic meta tags for character encoding and responsive design -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- Link to external CSS file -->
     <link rel="stylesheet" href="style.css" />
 
+    <!-- Page title that appears in browser tab -->
     <title>Portfolio Website</title>
   </head>
   <body>
-    <!-- splash component -->
+    <!-- Splash section - The first thing visitors see -->
+
     <section id="splash-container">
       <div id="splash-text">
+        <!-- Main introduction -->
         <span>Hello! I am Aditya Jyoti</span>
 
+        <!-- Dynamic typing effect section -->
         <section id="typing-container">
-          <span>I am interested in <span id="typing-text"></span> </span>
+          <span>I am interested in <span id="typing-text"></span></span>
         </section>
 
+        <!-- Social media links section -->
         <section id="connection-container">
           <span>connect with me</span>
           <div id="connection-links">
+            <!-- LinkedIn link -->
             <a href="https://linkedin.com/in/aditya-jyoti/" target="_blank">
               <img src="/assets/linkedin.svg" alt="linkedin" />
             </a>
+            <!-- GitHub link -->
             <a href="https://github.com/aditya-jyoti/" target="_blank">
               <img src="/assets/github.svg" alt="github" />
             </a>
@@ -31,16 +40,17 @@
         </section>
       </div>
 
+      <!-- Down arrow indicating more content below -->
       <img src="/assets/downarrow.svg" alt="down arrow" id="down-arrow" />
     </section>
 
-    <!-- interests component -->
+    <!-- Interests section - Displaying different areas of interest -->
     <section id="interests-container">
-      <!-- interest card -->
+      <!-- Robotics interest -->
       <div>
         <div class="interest-header">Robotics</div>
-        <span
-          >I love building things from scratch. Imagine a world where all the
+        <span>
+          I love building things from scratch. Imagine a world where all the
           hardware that you use was sourced and built by yourself. That's the
           world I want to live in. As a part of a special team dedicated to
           robotics in my college, I hope to develop my skills further and take
@@ -48,20 +58,22 @@
         </span>
       </div>
       <div class="line"></div>
+      <!-- Programming interest -->
       <div>
         <div class="interest-header">Programming</div>
-        <span
-          >Programming feels like magic to me. It gives me the freedom to
-          explore and build my own world with only my imagination as a limit. I
-          hope to be able to make a product that helps easen the lives of people
-          that use it and be able to make a difference in the world.
+        <span>
+          Programming feels like magic to me. It gives me the freedom to explore
+          and build my own world with only my imagination as a limit. I hope to
+          be able to make a product that helps easen the lives of people that
+          use it and be able to make a difference in the world.
         </span>
       </div>
       <div class="line"></div>
+      <!-- Public Speaking interest -->
       <div>
         <div class="interest-header">Public Speaking</div>
-        <span
-          >The rush of emotions i feel when I am on stage, talking to a crowd is
+        <span>
+          The rush of emotions i feel when I am on stage, talking to a crowd is
           something I can not explain. Seeing everyone's eyes on me, listening
           to my every word and so much more gives me more adrenaline than any
           thing in the world. I hope to one day be able to address the people if
@@ -70,12 +82,12 @@
       </div>
     </section>
 
-    <!-- projects component -->
+    <!-- Projects section - Showcasing personal projects -->
     <section id="projects-container">
       <span>Projects</span>
 
-      <!-- project cards -->
       <div id="projects">
+        <!-- Voyage project -->
         <div>
           <div class="project-title">Voyage</div>
           <span>
@@ -90,17 +102,18 @@
             >
           </div>
         </div>
+        <!-- TechnoVIT 24 project -->
         <div>
           <div class="project-title">TechnoVIT 24</div>
           <span>
             Contributed to the upkeep and development of the official website of
-            TechnoVIT, VIT Chennai's flagship technical fest. [ pls mind the
-            design :( ]
+            TechnoVIT, VIT Chennai's flagship technical fest.
           </span>
           <div class="project-details">
             <a href="https://technovitchennai.com/">visit</a>
           </div>
         </div>
+        <!-- Pseudocode project -->
         <div>
           <div class="project-title">Pseudocode</div>
           <span>
@@ -115,15 +128,20 @@
       </div>
     </section>
 
+    <!-- Footer section -->
     <footer>
       <span>made with blood, sweat and tears</span>
       <span>
-        <strong> &copy; 2024 Aditya Jyoti </strong>
+        <strong>&copy; 2024 Aditya Jyoti</strong>
       </span>
     </footer>
 
+    <!-- JavaScript for the typing effect -->
     <script>
+      // Get the element where the typing effect will occur
       const typingElement = document.getElementById("typing-text");
+
+      // Array of texts to display in the typing effect
       const typeArray = [
         "Robotics",
         "Development",
@@ -131,17 +149,21 @@
         "Spreading Knowledge",
       ];
 
-      let index = 0;
-      let isAdding = true;
-      let typeIndex = 0;
+      let index = 0; // Current character index
+      let isAdding = true; // Whether we're currently adding or removing characters
+      let typeIndex = 0; // Current word index in typeArray
 
       function playAnim() {
         setTimeout(
           function () {
+            // Update the text content
             typingElement.innerText = typeArray[typeIndex].slice(0, index);
+
             if (isAdding) {
+              // If we're adding characters
               if (index >= typeArray[typeIndex].length) {
                 isAdding = false;
+                // Pause before starting to remove characters
                 setTimeout(function () {
                   playAnim();
                 }, 500);
@@ -150,6 +172,7 @@
                 index++;
               }
             } else {
+              // If we're removing characters
               if (index === 0) {
                 isAdding = true;
                 typeIndex++;
@@ -162,9 +185,11 @@
             }
             playAnim();
           },
-          isAdding ? 120 : 120
+          isAdding ? 120 : 120 // Typing speed (can be adjusted)
         );
       }
+
+      // Start the animation
       playAnim();
     </script>
   </body>
